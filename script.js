@@ -132,27 +132,6 @@ class Node {
             }
         })
     }
-
-    getVersions_Old(json) {
-        var ucpver = '';
-        if ('com.docker.ucp.node-state-augmented.reconciler-ucp-version' in json.Labels)
-        {
-            ucpver = json.Labels['com.docker.ucp.node-state-augmented.reconciler-ucp-version']
-        }
-        if ('com.docker.ucp.node-state-augmented')
-        {
-
-        }
-        //var ucpver = getddcver(hostname, 'ucp-proxy.txt', 'IMAGE_VERSION');
-        //var dtrver = getddcver(hostname, 'dtr-registry-*.txt', 'DTR_VERSION');
-        var dtrver = '';
-
-        if (dtrver != '-')
-        {
-            role += '/MSR';
-        }
-        this.mkemsr = [ucpver, dtrver].join('/');
-    }
 }
 
 function trimmer(str, ch) {
@@ -172,6 +151,7 @@ function createSDTable(nodes) {
     var headers = ['Hostname', 'ID', 'Role', 'OS Version', 'HPVS', 'Avail', 'State', 'IP', 'MCR', 'MKE/MSR', 'Collect', 'Orch', 'Created/Updated', 'OS', 'Status']
 
     var table = document.createElement('table');
+    table.setAttribute("id", "sd_table");
     var headerBody = document.createElement('thead');
     var headerRow = document.createElement('tr');
 
@@ -201,9 +181,16 @@ function createSDTable(nodes) {
     });
 
     table.appendChild(tableBody);
-    table.classList.add("styled-table");
+    table.classList.add("stripe");
 
     document.querySelector('#sd_table_div').appendChild(table);
+    $('#sd_table').DataTable({
+        paging: false,
+        responsive: true,
+        columnDefs: [
+            { className: "compact" }
+        ]
+    });
 }
 
 function fullOSDetails(hostname) {
@@ -334,6 +321,7 @@ function processFile(file) {
 
                         createSDTable(nodes);
                         $ripple.hide();
+                        $('.drag-area').slideToggle('fast');
                     })
 
                 },
@@ -394,3 +382,7 @@ function showFile() {
     };
     processFile(file);
 }
+
+$('.expandable').click(function() {
+    $('.drag-area').slideToggle('fast');
+});

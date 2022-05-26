@@ -1,6 +1,6 @@
 body {
   align-items: center;
-  background: #bfddf8;
+  background: #5eabed;
   display: flex;
   flex-direction: column;
   font-family: sans-serif;
@@ -8,13 +8,35 @@ body {
   min-height: 100vh;
 }
 
+#sd_table_div {
+  max-width: 100%;
+  width: 100%;
+}
+
+#sd_table_wrapper {
+  background: #eee;
+  padding: 10px;
+}
+
+#sd_table_filter {
+  margin: 25px;
+  margin-bottom: 15px;
+}
+
+.expandable {
+  background: #0d355a;
+  color: white;
+  display: inline-block;
+  padding: 20px;
+  text-decoration: none;
+  width: 660px;
+}
+
 .styled-table {
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 0.9em;
   font-family: sans-serif;
-  table-layout: auto;
-  width: 100%;
 }
 
 .styled-table thead tr {
@@ -64,6 +86,7 @@ body {
 
 .drag-area {
   align-items: center;
+  background: #bfddf8;
   border: 2px dashed #fff;
   border-radius: 5px;
   display: flex;

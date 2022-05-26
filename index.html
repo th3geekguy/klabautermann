@@ -2,9 +2,8 @@
 <html>
 
 <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="dist/jszip.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
@@ -12,13 +11,16 @@
 
 <body>
 
-    <div class="drag-area">
-      <div class="icon"><img src="folder.png"
-     alt="Upload to browser"></div>
-      <header>Drop File Here</header>
-      <span>OR</span>
-      <button>Browse</button>
-      <input id="file" name="file" type="file" hidden>
+    <div>
+        <a class="expandable" href="#">Upload File - Expand ∇</a>
+        <div class="drag-area">
+          <div class="icon"><img src="folder.png"
+         alt="Upload to browser"></div>
+          <header>Drop File Here</header>
+          <span>OR</span>
+          <button>Browse</button>
+          <input id="file" name="file" type="file" hidden>
+        </div>
     </div>
 
     <div id="result_block" class="hidden">
@@ -37,6 +39,9 @@
         <a href="https://github.com/th3geekguy/klabautermann/">source</a>
     </div>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js" integrity="sha512-xcHCGC5tQ0SHlRX8Anbz6oy/OullASJkEhb4gjkneVpGE3/QGYejf14CUO5n5q5paiHfRFTa9HKgByxzidw2Bw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
     <script src="script.js"></script>
 </body>
 
